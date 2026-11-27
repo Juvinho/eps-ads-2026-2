@@ -32,7 +32,7 @@ public class UniquePlatesValidator extends RequestValidator<CarRequest> {
 
         if (alreadyExists) {
             throw new ResponseStatusException(
-                HttpStatus.BAD_REQUEST,
+                HttpStatus.CONFLICT,
                 "A placa informada já está cadastrada."
             );
         }

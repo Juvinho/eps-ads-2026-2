@@ -22,14 +22,14 @@ public class SaleDataValidator extends RequestValidator<CarRequest> {
         if ((sellingDate == null && sellingPrice != null)
                 || (sellingDate != null && sellingPrice == null)) {
             throw new ResponseStatusException(
-                HttpStatus.BAD_REQUEST,
+                HttpStatus.CONFLICT,
                 "A data de venda e o preço de venda devem ser informados juntos."
             );
         }
 
         if (sellingPrice != null && sellingPrice.compareTo(BigDecimal.ZERO) < 0) {
             throw new ResponseStatusException(
-                HttpStatus.BAD_REQUEST,
+                HttpStatus.CONFLICT,
                 "O preço de venda deve ser maior que zero."
             );
         }
